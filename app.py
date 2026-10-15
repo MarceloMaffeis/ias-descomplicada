@@ -1,18 +1,26 @@
 # =========================================================================================
-# 🎓 SENAI-SP — APERFEIÇOAMENTO PROFISSIONAL EM INTELIGÊNCIA ARTIFICIAL (40H)
-# 📖 IA DESCOMPLICADA: DO BÁSICO AO STREAMLIT COM EXEMPLOS DO COTIDIANO
+# 🎓 IA DESCOMPLICADA: DO BÁSICO AO STREAMLIT COM EXEMPLOS DO COTIDIANO
+# 📖 PLATAFORMA EDUCACIONAL ABERTA DE INTELIGÊNCIA ARTIFICIAL
 # 
 # SPDX-License-Identifier: MIT
-# Copyright (c) 2026 Marcelo Maffeis — SENAI-SP
+# Copyright (c) 2026 Marcelo Maffeis
 # 
-# TERMOS DA LICENÇA MIT & AVISO LEGAL:
+# TERMOS DA LICENÇA MIT, DIRETRIZES DE USO E AVISO LEGAL:
 # A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cópia deste
-# software e dos arquivos de documentação associados, para utilizar, copiar, modificar,
-# mesclar, publicar, distribuir e/ou sublicenciar, para fins educacionais e de estudo.
+# software e arquivos de documentação associados, para utilizar, copiar, modificar,
+# mesclar, publicar, distribuir, sublicenciar e/ou criar soluções e aplicações derivadas,
+# para quaisquer fins legítimos, acadêmicos ou comerciais, sob os termos da Licença MIT.
 # 
-# O SOFTWARE É FORNECIDO "COMO ESTÁ", SEM GARANTIA DE QUALQUER TIPO. EM NENHUM CASO OS
-# AUTORES OU TITULARES DE DIREITOS AUTORAIS SERÃO RESPONSÁVEIS POR QUALQUER RECLAMAÇÃO,
-# DANOS OU OUTRA RESPONSABILIDADE DECORRENTE DO USO DESTE CÓDIGO.
+# AVISO DE USO PÚBLICO & PROTEÇÃO CONTRA PRÁTICAS ABUSIVAS (ANTI-IFRAME / FRAMING):
+# Esta plataforma é um projeto educacional de código aberto disponibilizado publicamente.
+# É vedada a prática de encapsulamento ou embutimento (iframe/framing) desta aplicação 
+# hospedada em portais de terceiros com intuito de cobrança de acesso por esta instância pública.
+# 
+# ISENÇÃO DE RESPONSABILIDADE (DISCLAIMER):
+# O SOFTWARE É FORNECIDO "NO ESTADO EM QUE SE ENCONTRA" (AS IS), SEM GARANTIA DE QUALQUER
+# TIPO, EXPRESSA OU IMPLÍCITA. EM NENHUM CASO O AUTOR OU TITULAR DE DIREITOS AUTORAIS
+# SERÁ RESPONSÁVEL POR QUALQUER RECLAMAÇÃO, DANOS OU OUTRA RESPONSABILIDADE CIVIL
+# DECORRENTE DO USO OU OPERAÇÃO DESTE CÓDIGO.
 # =========================================================================================
 
 """
@@ -79,27 +87,44 @@ from sklearn.metrics import r2_score, mean_absolute_error, accuracy_score, silho
 # =========================================================================================
 # CONFIGURAÇÃO VISUAL DA PÁGINA STREAMLIT
 # =========================================================================================
-st.set_page_config(page_title="IA Descomplicada - SENAI", page_icon="💡", layout="wide")
+st.set_page_config(page_title="IA Descomplicada - Ensino Aberto", page_icon="💡", layout="wide")
 
 # =========================================================================================
-# FUNÇÃO DO RODAPÉ INSTITUCIONAL (LICENÇA MIT & SENAI-SP)
+# PROTEÇÃO ANTI-FRAMING / ANTI-CLICKJACKING (EVITA EMBUTIMENTO ABUSIVO EM SITES DE TERCEIROS)
+# =========================================================================================
+st.markdown("""
+<script>
+    // Se a aplicação estiver incorporada em um iframe de terceiros, força abertura direta
+    if (window.top !== window.self) {
+        try {
+            window.top.location = window.self.location;
+        } catch (e) {
+            console.warn("Embutimento em iframe detectado.");
+        }
+    }
+</script>
+""", unsafe_allow_html=True)
+
+# =========================================================================================
+# FUNÇÃO DO RODAPÉ EDUCACIONAL & PROTEÇÃO JURÍDICA (LICENÇA MIT)
 # =========================================================================================
 def exibir_rodape_educacional():
     st.markdown("---")
     st.markdown("""
-    <div style='text-align: center; color: #64748B; font-size: 0.85em; padding: 10px;'>
-        <p><b>🎓 Projeto Educacional de Código Aberto (Open Source) — Licença MIT</b><br>
-        Desenvolvido para o curso de <i>Aperfeiçoamento Profissional em Inteligência Artificial</i> — <b>SENAI-SP</b>.</p>
-        <p>⚠️ <b>Aviso Legal / Disclaimer:</b> Este aplicativo tem finalidade estritamente pedagógica e acadêmica para 
-        ensino prático e desmistificação da Inteligência Artificial em sala de aula.</p>
+    <div style='text-align: center; color: #475569; font-size: 0.85em; padding: 16px; border-radius: 10px; background-color: rgba(100, 116, 139, 0.08); margin-top: 25px;'>
+        <p style='margin-bottom: 6px;'><b>🎓 Plataforma Educacional Aberta de Inteligência Artificial — Licença MIT</b><br>
+        Iniciativa de Ensino Aberto e Descomplicado • Criado por <b>Marcelo Maffeis</b></p>
+        <p style='margin-bottom: 6px;'>🔓 <b>Direito de Cópia e Empreendedorismo aos Alunos:</b> Todo o código-fonte é aberto. Alunos, professores e desenvolvedores são plenamente incentivados a estudar, clonar, modificar e <b>desenvolver suas próprias aplicações comerciais ou livres</b> a partir desta base de conhecimento, em conformidade com a licença MIT.</p>
+        <p style='margin-bottom: 6px;'>🛡️ <b>Acesso Público Gratuito & Anti-Framing:</b> Esta instância hospedada é pública e de livre acesso educacional. Fica expressamente desautorizado o embutimento (framing/iframe) desta aplicação em portais ou páginas de terceiros com cobrança de mensalidade ou venda de acesso a este servidor.</p>
+        <p style='margin-bottom: 0px; font-size: 0.9em; color: #64748B;'>⚖️ <b>Isenção Legal (AS IS):</b> Software fornecido no estado em que se encontra, sem garantias implícitas de qualquer natureza. O autor se isenta de qualquer responsabilidade por decisões comerciais, operacionais ou danos resultantes da aplicação dos modelos demonstrativos.</p>
     </div>
     """, unsafe_allow_html=True)
 
 # =========================================================================================
-# MENU LATERAL COM TODOS OS MÓDULOS DA EMENTA SENAI
+# MENU LATERAL COM TODOS OS MÓDULOS EDUCACIONAIS
 # =========================================================================================
 st.sidebar.title("💡 IA Descomplicada")
-st.sidebar.caption("SENAI-SP • Exemplos Práticos do Cotidiano")
+st.sidebar.caption("Educação Aberta • Exemplos Práticos do Cotidiano")
 
 menu = st.sidebar.radio(
     "Selecione o Módulo de IA:",
@@ -117,7 +142,7 @@ menu = st.sidebar.radio(
 
 st.sidebar.markdown("---")
 st.sidebar.caption("📜 Código Aberto sob Licença MIT")
-st.sidebar.caption("SENAI-SP — Formação Inicial e Continuada")
+st.sidebar.caption("Ensino Aberto • Livre para Estudo e Criação")
 
 # =========================================================================================
 # MÓDULO 0: APRESENTAÇÃO DAS BIBLIOTECAS COM LINKS OFICIAIS
@@ -165,7 +190,7 @@ if menu == "🏠 Início: O Kit de Bibliotecas":
 
 # =========================================================================================
 # MÓDULO 1: REGRESSÃO LINEAR (SORVETERIA) - EXPLICAÇÃO DETALHADA E DIDÁTICA
-# • Item SENAI: 2.1.1 Aprendizado Supervisionado -> Regressão
+# • Item da Ementa: 2.1.1 Aprendizado Supervisionado -> Regressão
 # • Teoria: A Regressão descobre uma reta matemática para prever um número contínuo.
 # =========================================================================================
 elif menu == "🍦 1. Regressão (Vendas de Sorvete)":
@@ -336,7 +361,7 @@ print(f"Com 32°C, a previsão é vender {previsao[0]:.0f} sorvetes!")
 
 # =========================================================================================
 # MÓDULO 2: CLASSIFICAÇÃO (SEPARADOR DE FRUTAS) - DIDÁTICO E PASSO A PASSO
-# • Item SENAI: 2.1.1 Aprendizado Supervisionado -> Classificação
+# • Item da Ementa: 2.1.1 Aprendizado Supervisionado -> Classificação
 # • Teoria: A Classificação aprende regras de corte lógicas para separar categorias.
 # =========================================================================================
 elif menu == "🍎 2. Classificação (Separador de Frutas)":
@@ -464,7 +489,7 @@ elif menu == "🍎 2. Classificação (Separador de Frutas)":
         st.subheader("📖 Como a Classificação Funciona? (Sem Complicação)")
         st.markdown("""
         > 💡 **Analogia da Vida Real:**  
-        > Imagine um operador no entreposto de frutas ou na linha de separação industrial do SENAI.  
+        > Imagine um operador no entreposto de frutas ou na linha de separação industrial de uma distribuidora de alimentos.  
         > 1. Ele toca na fruta: **"A casca é lisa?"** ➡️ Se sim, é **Maçã** (maçãs não têm casca rugosa!).  
         > 2. Se a casca for **Rugosa**, ele sabe que é uma fruta cítrica, mas precisa olhar a balança:  
         >    * Se for **leve (menos de 145g)** ➡️ É uma **Mexerica / Tangerina**!  
@@ -547,7 +572,7 @@ print(f"Decisão: {frutas[resultado[0]]} (Certeza: {max(probabilidades)*100:.0f}
 
 # =========================================================================================
 # MÓDULO 3: CLUSTERIZAÇÃO K-MEANS (CLIENTES DO MERCADO) - DIDÁTICO E PASSO A PASSO
-# • Item SENAI: 2.1.2 Aprendizado Não Supervisionado -> Clusterização
+# • Item da Ementa: 2.1.2 Aprendizado Não Supervisionado -> Clusterização
 # • Teoria: A IA agrupa dados semelhantes sem que ninguém dê as respostas certas.
 # =========================================================================================
 elif menu == "🛒 3. Clusterização (Clientes do Mercado)":
@@ -717,7 +742,7 @@ print(f"O novo cliente pertence ao Grupo {grupo_novo[0]}")
 
 # =========================================================================================
 # MÓDULO 4: DEEP LEARNING (NOTA DO ALUNO) - DIDÁTICO E PASSO A PASSO
-# • Item SENAI: 3. Redes Neurais Artificiais -> 3.1 Arquitetura / 3.2 Treinamento
+# • Item da Ementa: 3. Redes Neurais Artificiais -> 3.1 Arquitetura / 3.2 Treinamento
 # • Teoria: Neurônios com camadas ocultas que aprendem relações não-lineares complexas.
 # =========================================================================================
 elif menu == "🎓 4. Deep Learning (Previsão de Notas)":
@@ -902,7 +927,7 @@ print(f"Nota estimada pela Rede Neural: {nota_prevista[0]:.1f}")
 
 # =========================================================================================
 # MÓDULO 5: PLN / SENTIMENTOS (AVALIAÇÕES IFOOD) - DIDÁTICO E PASSO A PASSO
-# • Item SENAI: 4. Processamento de Linguagem Natural -> 4.1.1.1 Análise de Sentimentos
+# • Item da Ementa: 4. Processamento de Linguagem Natural -> 4.1.1.1 Análise de Sentimentos
 # • Teoria: Tokenização de frases e análise de polaridade léxica.
 # =========================================================================================
 elif menu == "🍔 5. PLN (Avaliações do iFood)":
@@ -1167,7 +1192,7 @@ else:
 
 # =========================================================================================
 # MÓDULO 6: VISÃO COMPUTACIONAL (MATRIZ DE PIXELS) - DIDÁTICO E PASSO A PASSO
-# • Item SENAI: 5. Visão Computacional -> 5.1.1 Representação de Imagens e Matrizes
+# • Item da Ementa: 5. Visão Computacional -> 5.1.1 Representação de Imagens e Matrizes
 # • Teoria: Imagens digitais são matrizes numéricas com valores de 0 (preto) a 255 (branco).
 # =========================================================================================
 elif menu == "📸 6. Visão Computacional (Matriz de Imagem)":
@@ -1236,7 +1261,7 @@ elif menu == "📸 6. Visão Computacional (Matriz de Imagem)":
             st.dataframe(df_pixels, use_container_width=True)
             st.info(f"📊 Brilho médio dos 25 pixels: **{matriz_processada.mean():.1f} / 255.0**")
 
-            # Aplicação Industrial SENAI: Inspeção Automática de Qualidade
+            # Aplicação Industrial Prática: Inspeção Automática de Qualidade
             pixels_esperados = int((matriz_original >= 200).sum())
             pixels_acesos = int((matriz_processada >= 200).sum())
             if pixels_acesos >= 5:
@@ -1302,7 +1327,7 @@ elif menu == "📸 6. Visão Computacional (Matriz de Imagem)":
             """)
 
             st.markdown("""
-            #### 4️⃣ Avaliação de Conformidade e Aplicação SENAI
+            #### 4️⃣ Avaliação de Conformidade e Aplicação Industrial
             * **Scores de Assertividade na Visão Computacional:**
               * **Score de Conformidade com o Molde (0 a 100%):** Compara pixel a pixel a imagem processada com o padrão perfeito de engenharia.
               * **Limiar de Rejeição Industrial:** Se a peça perder pixels ou apresentar iluminação incorreta, o score cai e o controle de qualidade descarta a peça antes de ir para o cliente!
@@ -1346,7 +1371,7 @@ else:
 
 # =========================================================================================
 # MÓDULO 7: CHATBOT COM RAG (CRIE SUA PRÓPRIA IA) - CONVERSACIONAL E DIDÁTICO
-# • Item SENAI: 6. Modelos Personalizados -> 6.1 Arquitetura / 6.2 Conexão com Nuvem
+# • Item da Ementa: 6. Modelos Personalizados -> 6.1 Arquitetura / 6.2 Conexão com Nuvem
 # • Teoria: Chatbot conversacional com Injeção de Contexto (RAG) para respostas ancoradas.
 # =========================================================================================
 elif menu == "💬 7. Chatbot com RAG (Crie sua IA)":
@@ -1361,9 +1386,9 @@ elif menu == "💬 7. Chatbot com RAG (Crie sua IA)":
 
     # Inicialização dos estados para os templates e mensagens do chat
     if 'rag_persona' not in st.session_state:
-        st.session_state['rag_persona'] = "Você é o instrutor técnico de usinagem e segurança do SENAI. Responda de forma técnica, cordial e com foco rigoroso em normas de segurança industrial."
+        st.session_state['rag_persona'] = "Você é um instrutor técnico e especialista em usinagem e segurança operacional. Responda de forma técnica, cordial e com foco rigoroso em normas de segurança industrial."
     if 'rag_contexto' not in st.session_state:
-        st.session_state['rag_contexto'] = """MANUAL DE OPERAÇÃO - TORNO MECÂNICO E CNC SENAI:
+        st.session_state['rag_contexto'] = """MANUAL DE OPERAÇÃO - TORNO MECÂNICO E CNC INDUSTRIAL:
 1. SEGURANÇA OBRIGATÓRIA: É expressamente obrigatório o uso de óculos de proteção (EPI) e calçado com biqueira de aço na oficina.
 2. VESTIMENTA: Nunca opere o torno usando relógios, anéis, pulseiras ou mangas compridas soltas. Cabelos longos devem estar presos com touca ou rede.
 3. VELOCIDADE DE CORTE: A velocidade recomendada para desbaste de alumínio 6061 é de 250 m/min com pastilha de metal duro. Para aço 1020, use 180 m/min.
@@ -1372,7 +1397,7 @@ elif menu == "💬 7. Chatbot com RAG (Crie sua IA)":
         st.session_state['rag_chat_messages'] = [
             {
                 "role": "assistant",
-                "content": "Olá, operador! Sou o instrutor de usinagem e segurança do SENAI. Tenho o manual técnico da oficina em mãos. Qual a sua dúvida sobre procedimentos de torneamento, ferramentas ou regras de segurança?",
+                "content": "Olá, operador! Sou o instrutor de usinagem e segurança operacional. Tenho o manual técnico da oficina em mãos. Qual a sua dúvida sobre procedimentos de torneamento, ferramentas ou regras de segurança?",
                 "source": "Sistema"
             }
         ]
@@ -1381,8 +1406,8 @@ elif menu == "💬 7. Chatbot com RAG (Crie sua IA)":
 
     # Funções auxiliares para carregar templates prontos
     def carregar_template_torno():
-        st.session_state['rag_persona'] = "Você é o instrutor técnico de usinagem e segurança do SENAI. Responda de forma técnica, cordial e com foco rigoroso em normas de segurança industrial."
-        st.session_state['rag_contexto'] = """MANUAL DE OPERAÇÃO - TORNO MECÂNICO E CNC SENAI:
+        st.session_state['rag_persona'] = "Você é um instrutor técnico e especialista em usinagem e segurança operacional. Responda de forma técnica, cordial e com foco rigoroso em normas de segurança industrial."
+        st.session_state['rag_contexto'] = """MANUAL DE OPERAÇÃO - TORNO MECÂNICO E CNC INDUSTRIAL:
 1. SEGURANÇA OBRIGATÓRIA: É expressamente obrigatório o uso de óculos de proteção (EPI) e calçado com biqueira de aço na oficina.
 2. VESTIMENTA: Nunca opere o torno usando relógios, anéis, pulseiras ou mangas compridas soltas. Cabelos longos devem estar presos com touca ou rede.
 3. VELOCIDADE DE CORTE: A velocidade recomendada para desbaste de alumínio 6061 é de 250 m/min com pastilha de metal duro. Para aço 1020, use 180 m/min.
@@ -1390,14 +1415,14 @@ elif menu == "💬 7. Chatbot com RAG (Crie sua IA)":
         st.session_state['rag_chat_messages'] = [
             {
                 "role": "assistant",
-                "content": "Olá, operador! Sou o instrutor de usinagem e segurança do SENAI. Tenho o manual técnico da oficina em mãos. Qual a sua dúvida sobre procedimentos de torneamento, ferramentas ou regras de segurança?",
+                "content": "Olá, operador! Sou o instrutor de usinagem e segurança operacional. Tenho o manual técnico da oficina em mãos. Qual a sua dúvida sobre procedimentos de torneamento, ferramentas ou regras de segurança?",
                 "source": "Sistema"
             }
         ]
 
     def carregar_template_escola():
-        st.session_state['rag_persona'] = "Você é o assistente virtual da secretaria escolar do SENAI-SP. Seja cordial, acolhedor e forneça orientações acadêmicas precisas."
-        st.session_state['rag_contexto'] = """REGULAMENTO ACADÊMICO E DISCIPLINAR SENAI-SP:
+        st.session_state['rag_persona'] = "Você é o assistente virtual da secretaria acadêmica da Escola Técnica. Seja cordial, acolhedor e forneça orientações acadêmicas precisas."
+        st.session_state['rag_contexto'] = """REGULAMENTO ACADÊMICO E DISCIPLINAR INSTITUCIONAL:
 1. FREQUÊNCIA: É exigida frequência mínima de 75% da carga horária do curso para obtenção do certificado.
 2. ATESTADOS MÉDICOS: O aluno tem até 48 horas úteis após a falta para protocolar o atestado médico original na secretaria da unidade.
 3. CRITÉRIOS DE APROVAÇÃO: Média final igual ou superior a 7,0 resulta em aprovação direta. Médias entre 5,0 e 6,9 têm direito à avaliação de recuperação.
@@ -1405,7 +1430,7 @@ elif menu == "💬 7. Chatbot com RAG (Crie sua IA)":
         st.session_state['rag_chat_messages'] = [
             {
                 "role": "assistant",
-                "content": "Olá, estudante! Sou o assistente virtual da secretaria do SENAI-SP. Posso orientá-lo sobre prazos de atestados, frequência mínima, critérios de notas e regulamento escolar. Como posso te ajudar hoje?",
+                "content": "Olá, estudante! Sou o assistente virtual da secretaria acadêmica. Posso orientá-lo sobre prazos de atestados, frequência mínima, critérios de notas e regulamento escolar. Como posso te ajudar hoje?",
                 "source": "Sistema"
             }
         ]
@@ -1434,7 +1459,7 @@ elif menu == "💬 7. Chatbot com RAG (Crie sua IA)":
         st.markdown("**💡 Escolha um Cenário Corporativo Pronto:**")
         b_c1, b_c2, b_c3 = st.columns(3)
         b_c1.button("🏭 Suporte Torno CNC (Oficina)", on_click=carregar_template_torno, use_container_width=True)
-        b_c2.button("📋 Secretaria Escolar (SENAI)", on_click=carregar_template_escola, use_container_width=True)
+        b_c2.button("📋 Secretaria Acadêmica (Escola)", on_click=carregar_template_escola, use_container_width=True)
         b_c3.button("🍳 Chef Sustentável da Geladeira", on_click=carregar_template_chef, use_container_width=True)
 
         st.markdown("---")
@@ -1707,7 +1732,7 @@ import requests
 # ETAPA 1: INICIALIZAR O HISTÓRICO DA CONVERSA
 if "chat_historico" not in st.session_state:
     st.session_state.chat_historico = [
-        {"role": "assistant", "content": "Olá! Sou seu assistente oficial do SENAI. Como posso te ajudar hoje?"}
+        {"role": "assistant", "content": "Olá! Sou seu assistente inteligente. Como posso te ajudar hoje?"}
     ]
 
 # ETAPA 2: RENDERIZAR AS MENSAGENS ANTERIORES NA TELA
@@ -1724,14 +1749,14 @@ if prompt_usuario := st.chat_input("Digite sua dúvida sobre o manual técnico..
 
     # ETAPA 4: APLICAR O RAG (BASE DE CONHECIMENTO + PROMPT)
     manual_empresa = \"\"\"
-    MANUAL DO TORNO SENAI:
+    MANUAL DO TORNO MECÂNICO INDUSTRIAL:
     - Velocidade máxima para alumínio: 250 m/min.
     - Em caso de emergência ou vibração, aperte o botão cogumelo vermelho.
     \"\"\"
 
     prompt_rag = f\"\"\"
-    Você é um instrutor técnico do SENAI.
-    Responda à dúvida do aluno EXCLUSIVAMENTE com base nas informações do manual abaixo:
+    Você é um instrutor técnico especializado em usinagem e segurança operacional.
+    Responda à dúvida do operador EXCLUSIVAMENTE com base nas informações do manual abaixo:
     
     MANUAL:
     {manual_empresa}
